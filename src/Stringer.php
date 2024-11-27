@@ -533,4 +533,11 @@ class Stringer
 
         return $this;
     }
+
+    public function appendToEnd(string $contentToAppend): static
+    {
+        $this->content = $this->content . PHP_EOL . $contentToAppend;
+
+        return $this;
+    }
 }

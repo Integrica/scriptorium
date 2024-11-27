@@ -126,7 +126,14 @@ class EnvUpdater
         $stringer = Stringer::for($this->filePath);
 
         foreach ($this->values as $key => $value) {
-            $stringer->replace($key . '=', $key . '=' . $this->ensureQuotedValue($value));
+            $stringer
+                ->when(
+                    value: $stringer->contains($key . '='),
+                    callback: fn (Stringer $stringer) => $stringer  
+                        ->replace($key . '=', $key . '=' . $this->ensureQuotedValue($value)),
+                    default: fn (Stringer $stringer) => $stringer  
+                        ->appendToEnd($key . '=' . $this->ensureQuotedValue($value)),
+                );
         }
 
         return $stringer->save();
