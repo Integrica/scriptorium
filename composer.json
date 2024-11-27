@@ -1,0 +1,35 @@
+{
+    "name": "integrica/scriptorium",
+    "description": "A package providing PHP classes and functions to ease Laravel and Filament development.",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "filament",
+        "integrica",
+        "stringer"
+    ],
+    "homepage": "https://github.com/Integrica/scriptorium",
+    "support": {
+        "issues": "https://github.com/Integrica/scriptorium/issues",
+        "source": "https://github.com/Integrica/scriptorium"
+    },
+
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Integrica",
+            "email": "integrica8@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Integrica\\Scriptorium\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^8.2",
+        "laravel/laravel": "^11.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
