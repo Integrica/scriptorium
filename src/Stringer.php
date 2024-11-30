@@ -540,4 +540,11 @@ class Stringer
 
         return $this;
     }
+
+    public function simpleReplace(string | array $needle, string | array $replacement): static
+    {
+        $this->content = str_replace($needle, $replacement, $this->content);
+
+        return $this;
+    }
 }
