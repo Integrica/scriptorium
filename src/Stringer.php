@@ -296,7 +296,7 @@ class Stringer
         return $this->content;
     }
 
-    public function prependBeforeLast(string $needle, string $replacement): static
+    public function prependBeforeLast(string $needle, string $replacement, bool $trimContent = false): static
     {
         $lastPos = strrpos($this->content, $needle);
 
@@ -307,7 +307,7 @@ class Stringer
             preg_match('/^\s*/', $line, $matches);
             $originalIndentation = $matches[0] ?? '';
 
-            $formattedReplacement = $this->getIndentation() . trim($replacement);
+            $formattedReplacement = $this->getIndentation() . ($trimContent ? trim($replacement) : $replacement);
             if ($this->addNewLine) {
                 $formattedReplacement = PHP_EOL . $formattedReplacement . PHP_EOL;
             }
