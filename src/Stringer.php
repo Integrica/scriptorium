@@ -547,4 +547,11 @@ class Stringer
 
         return $this;
     }
+
+    public function pregReplace(string $pattern, string $replacement): static
+    {
+        $this->content = preg_replace($pattern, $replacement, $this->content);
+
+        return $this;
+    }
 }
